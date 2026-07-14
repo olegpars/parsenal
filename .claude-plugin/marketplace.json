@@ -1,0 +1,15 @@
+{
+  "name": "parsly",
+  "description": "Parsly — public Claude Code skill system by @olegpars.",
+  "owner": { "name": "Oleg Parshentsev", "email": "olegpars@gmail.com" },
+  "plugins": [
+    {
+      "name": "parsly",
+      "source": "./",
+      "description": "One plugin, three skills: parsly-seedance (director-grade YAML storyboard prompts for Seedance 2.0), parsly-brigada (one-shot multi-agent expert council for hard decisions), parsly-kopatel (autonomous multi-hour deep-research pipeline with confidence-tiered knowledge base).",
+      "version": "1.0.0",
+      "author": { "name": "Oleg Parshentsev" },
+      "category": "productivity"
+    }
+  ]
+}
