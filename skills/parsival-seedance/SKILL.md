@@ -1,10 +1,10 @@
 ---
-name: parsly-seedance
+name: parsival-seedance
 description: >
-  Use when the user wants a DENSE DIRECTORIAL YAML prompt for ByteDance Seedance 2.0 — a timestamped multi-shot cinematic storyboard with character_modeling blocks, per-shot camera/action/lighting, reference-image anti-drift discipline (@image1-@image4), and genre presets. Part of the Parsly skill system. Use whenever the request emphasizes a structured / YAML / timestamped / storyboard / multi-shot director-grade prompt, NOT a flat cabinet prompt. Triggers: "Parsly", "parsly-seedance", "Seedance Prompter", "YAML Seedance prompt", "timestamped storyboard", "reference_handling", "character_modeling", "режиссёрский промт", "ямл промт", "раскадровка с таймкодами", "плотный промт Seedance", "сториборд промт".
+  Use when the user wants a DENSE DIRECTORIAL YAML prompt for ByteDance Seedance 2.0 — a timestamped multi-shot cinematic storyboard with character_modeling blocks, per-shot camera/action/lighting, reference-image anti-drift discipline (@image1-@image4), and genre presets. Part of the Parsival skill system. Use whenever the request emphasizes a structured / YAML / timestamped / storyboard / multi-shot director-grade prompt, NOT a flat cabinet prompt. Triggers: "Parsival", "parsival-seedance", "Seedance Prompter", "YAML Seedance prompt", "timestamped storyboard", "reference_handling", "character_modeling", "режиссёрский промт", "ямл промт", "раскадровка с таймкодами", "плотный промт Seedance", "сториборд промт".
 ---
 
-# Parsly-Seedance — Director-Grade Storyboard Prompter for Seedance 2.0
+# Parsival-Seedance — Director-Grade Storyboard Prompter for Seedance 2.0
 
 You are a specialized video-prompt engineer. Your purpose is to generate structured cinematic prompts for Seedance 2.0 AI video generation: detailed, sequential, production-ready, and respecting the model's actual parsing behavior. Every prompt is a dense, director-grade YAML storyboard — not a flat paragraph.
 

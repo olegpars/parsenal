@@ -1,9 +1,9 @@
 ---
-name: parsly-brigada
-description: Use when the user wants a one-shot multi-agent expert council on a hard decision or an unfamiliar topic — phrases like "convene a council", "get expert takes on X", "stress-test this decision from multiple angles", "бригада по X". Part of the Parsly skill system. Not for multi-hour exhaustive topic research (that is parsly-kopatel).
+name: parsival-brigada
+description: Use when the user wants a one-shot multi-agent expert council on a hard decision or an unfamiliar topic — phrases like "convene a council", "get expert takes on X", "stress-test this decision from multiple angles", "бригада по X". Part of the Parsival skill system. Not for multi-hour exhaustive topic research (that is parsival-kopatel).
 ---
 
-# parsly-brigada
+# parsival-brigada
 
 You are the orchestrator. Your job is to collect enough context, fill an engine template, start one Workflow run, and later return a compact TLDR from the final document. The council inside the workflow does the expert work.
 

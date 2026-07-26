@@ -1,25 +1,25 @@
-# Parsly
+# Parsival
 
 Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, three skills.
 
 | Skill | What it does |
 |---|---|
-| `parsly-seedance` | Director-grade YAML storyboard prompts for ByteDance Seedance 2.0: timestamped multi-shot, character modeling, reference-image anti-drift discipline. |
-| `parsly-brigada` | One-shot multi-agent expert council for hard decisions: role personas, a verifier, an adversarial critic, a gap-fill round, synthesis into a single document. |
-| `parsly-kopatel` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
+| `parsival-seedance` | Director-grade YAML storyboard prompts for ByteDance Seedance 2.0: timestamped multi-shot, character modeling, reference-image anti-drift discipline. |
+| `parsival-brigada` | One-shot multi-agent expert council for hard decisions: role personas, a verifier, an adversarial critic, a gap-fill round, synthesis into a single document. |
+| `parsival-kopatel` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
 
 ## Install
 
 ```text
-/plugin marketplace add olegpars/parsly
-/plugin install parsly@parsly
+/plugin marketplace add olegpars/parsival
+/plugin install parsival@parsival
 ```
 
 All three skills become available and trigger on their own phrases.
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsly and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`).
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsival and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`).
 
-## parsly-seedance
+## parsival-seedance
 
 Skills for AI video creators, built for Claude Code and compatible agent runtimes. Battle-tested on real production work.
 
@@ -30,9 +30,9 @@ Requirements:
 - Claude Code (or any runtime that supports SKILL.md-format agent skills)
 - A Seedance 2.0 access point (Dreamina, Jimeng, CapCut, or API) to run the generated prompts
 
-## parsly-brigada
+## parsival-brigada
 
-`parsly-brigada` is a one-shot multi-agent expert council skill. It turns one concrete question into a council run: a council of role personas (6-8 by default, 3-12 via modifiers) research in parallel, a verifier checks load-bearing claims, an adversarial critic attacks weak points, a gap-fill round closes important holes, and a synthesizer writes one decision document.
+`parsival-brigada` is a one-shot multi-agent expert council skill. It turns one concrete question into a council run: a council of role personas (6-8 by default, 3-12 via modifiers) research in parallel, a verifier checks load-bearing claims, an adversarial critic attacks weak points, a gap-fill round closes important holes, and a synthesizer writes one decision document.
 
 Brigada means "brigade" or "crew". It is built for focused decisions and fast understanding, not for ordinary brainstorming or exhaustive multi-hour research.
 
@@ -66,15 +66,15 @@ Brigada means "brigade" or "crew". It is built for focused decisions and fast un
 
 ### Files
 
-- `skills/parsly-brigada/SKILL.md`: orchestration instructions.
-- `skills/parsly-brigada/engine/brigada-template.js`: single council workflow template.
-- `skills/parsly-brigada/engine/multibrigada-template.js`: batch master workflow.
-- `skills/parsly-brigada/engine/extract-doc.mjs`: fallback document extractor.
-- `skills/parsly-brigada/references/unattended.md`: generic permission guidance for unattended runs.
+- `skills/parsival-brigada/SKILL.md`: orchestration instructions.
+- `skills/parsival-brigada/engine/brigada-template.js`: single council workflow template.
+- `skills/parsival-brigada/engine/multibrigada-template.js`: batch master workflow.
+- `skills/parsival-brigada/engine/extract-doc.mjs`: fallback document extractor.
+- `skills/parsival-brigada/references/unattended.md`: generic permission guidance for unattended runs.
 
-## parsly-kopatel
+## parsival-kopatel
 
-`parsly-kopatel` is an autonomous multi-hour deep-research pipeline for Claude Code. It turns an explicit "dig deep into this topic" request into a reusable knowledge base: scout council -> wave loop -> consolidation -> static site.
+`parsival-kopatel` is an autonomous multi-hour deep-research pipeline for Claude Code. It turns an explicit "dig deep into this topic" request into a reusable knowledge base: scout council -> wave loop -> consolidation -> static site.
 
 Every claim is tagged with an A/B/C/D confidence tier, from primary-source evidence to weak folklore. Raw entries, consolidated digests, and the website remain separate so the result is both auditable and readable.
 
@@ -92,7 +92,7 @@ Ask for a focused dig:
 Dig deep into WebGPU debugging tools and build a knowledge base.
 ```
 
-`parsly-kopatel` will:
+`parsival-kopatel` will:
 
 1. Confirm the topic and mode.
 2. Save output under `./digs/<slug>/` unless you choose another base.
@@ -102,7 +102,7 @@ Dig deep into WebGPU debugging tools and build a knowledge base.
 6. Consolidate entries into subtopic and cross-cutting digests.
 7. Build `dist/index.html`.
 
-For long `full` runs, arm the supervised allowlist described in `skills/parsly-kopatel/references/unattended.md` before stepping away.
+For long `full` runs, arm the supervised allowlist described in `skills/parsival-kopatel/references/unattended.md` before stepping away.
 
 ### Result Structure
 

@@ -1,9 +1,9 @@
 ---
-name: parsly-kopatel
-description: Use when the user explicitly asks to dig deeply or exhaustively into a topic, build a reusable knowledge base, continue an existing dig, or adopt an existing research folder with kopatel (Russian for 'digger'). Part of the Parsly skill system. Triggers include "dig deep into X", "exhaustively research X", "build a knowledge base on X", and similar explicit requests.
+name: parsival-kopatel
+description: Use when the user explicitly asks to dig deeply or exhaustively into a topic, build a reusable knowledge base, continue an existing dig, or adopt an existing research folder with kopatel (Russian for 'digger'). Part of the Parsival skill system. Triggers include "dig deep into X", "exhaustively research X", "build a knowledge base on X", and similar explicit requests.
 ---
 
-# parsly-kopatel
+# parsival-kopatel
 
 You are the thin orchestrator for an autonomous deep-research pipeline. Workflow agents do the heavy work; your job is to start phases, persist large results through Node scripts on disk, keep state resumable, and show the user the small decisions that matter.
 
