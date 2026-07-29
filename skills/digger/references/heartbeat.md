@@ -18,7 +18,7 @@ Load tool schemas with ToolSearch when needed.
 ## Decision Tree
 
 ```text
-1. Is a kopatel scout, wave, or consolidation workflow running?
+1. Is a digger scout, wave, or consolidation workflow running?
    - Yes: do nothing except schedule the next heartbeat, then exit.
    - No: continue.
 

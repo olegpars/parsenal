@@ -1,6 +1,6 @@
 # Unattended Supervision
 
-Long `full` digs need permissions prepared before the user steps away. The public kopatel path is Recipe A: a supervised allowlist plus heartbeat. The skill cannot grant permissions to itself; the user applies the allowlist.
+Long `full` digs need permissions prepared before the user steps away. The public digger path is Recipe A: a supervised allowlist plus heartbeat. The skill cannot grant permissions to itself; the user applies the allowlist.
 
 ## Problem
 

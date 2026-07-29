@@ -1,5 +1,5 @@
 export const meta = {
-  name: 'kopatel-scout',
+  name: 'digger-scout',
   description: 'Scout/Council phase: N taxonomy-architects (Opus) decompose an arbitrary topic into subtopics + cross-cutting themes, then a synthesizer writes taxonomy.json + extraction-spec.md and seeds frontier-w1.json',
   phases: [
     { title: 'Council', detail: 'N architects independently propose a decomposition + where authoritative info lives + seed queries', model: 'opus' },

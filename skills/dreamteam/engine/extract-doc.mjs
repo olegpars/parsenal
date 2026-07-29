@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Extract a final brigada document from a Workflow task output JSON without
+// Extract a final dreamteam document from a Workflow task output JSON without
 // loading the full reports and verification payload into the main session.
 // Usage: node extract-doc.mjs <task-output.json> <out.md>
 

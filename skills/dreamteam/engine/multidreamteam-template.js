@@ -1,4 +1,4 @@
-// multibrigada-template.js - master workflow for several brigada child runs.
+// multidreamteam-template.js - master workflow for several dreamteam child runs.
 // The raw template is syntax-checkable before placeholder replacement.
 //
 // Placeholders:
@@ -19,18 +19,18 @@ const parseJsonPlaceholder = (value, fallback) => {
 }
 
 export const meta = {
-  name: 'multibrigada-{{BATCH_SLUG}}',
-  description: 'multibrigada: {{BATCH_TITLE}}',
+  name: 'multidreamteam-{{BATCH_SLUG}}',
+  description: 'multidreamteam: {{BATCH_TITLE}}',
   phases: [
-    { title: 'Brigadas', detail: 'Run child brigadas; each child does brief -> assignment -> council -> verification -> gap fill -> synthesis' },
+    { title: 'Dreamteams', detail: 'Run child dreamteams; each child does brief -> assignment -> council -> verification -> gap fill -> synthesis' },
   ],
 }
 
 const CHILDREN = parseJsonPlaceholder(String.raw`{{CHILDREN_JSON}}`, [])
 const PARALLEL = parseBoolPlaceholder('{{PARALLEL}}', false)
 
-if (!CHILDREN.length) throw new Error('Empty brigada list')
-log(`Brigadas in batch: ${CHILDREN.length}; mode: ${PARALLEL ? 'parallel' : 'sequential'}`)
+if (!CHILDREN.length) throw new Error('Empty dreamteam list')
+log(`Dreamteams in batch: ${CHILDREN.length}; mode: ${PARALLEL ? 'parallel' : 'sequential'}`)
 
 const runOne = async (child) => {
   log(`> ${child.name} - start`)
@@ -60,5 +60,5 @@ if (PARALLEL) {
 }
 
 const done = results.filter((result) => result.stage === 'final').length
-log(`Batch complete: ${done}/${CHILDREN.length} brigadas reached synthesis`)
+log(`Batch complete: ${done}/${CHILDREN.length} dreamteams reached synthesis`)
 return { batch: results }

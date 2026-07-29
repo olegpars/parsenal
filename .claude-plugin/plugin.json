@@ -1,10 +1,10 @@
 {
   "name": "parsival",
-  "description": "Parsival — public Claude Code skill system by @olegpars: director-grade Seedance 2.0 storyboard prompting, a one-shot multi-agent expert council, and an autonomous deep-research pipeline",
-  "version": "1.0.0",
+  "description": "Parsival — public Claude Code skill system by @olegpars: a one-shot multi-agent expert council and an autonomous deep-research pipeline",
+  "version": "2.0.0",
   "author": { "name": "Oleg Parshentsev", "email": "olegpars@gmail.com" },
   "homepage": "https://github.com/olegpars/parsival",
   "repository": "https://github.com/olegpars/parsival",
   "license": "MIT",
-  "keywords": ["claude-code", "skills", "seedance", "video-prompting", "storyboard", "multi-agent", "expert-council", "deep-research", "knowledge-base"]
+  "keywords": ["claude-code", "skills", "multi-agent", "expert-council", "deep-research", "knowledge-base"]
 }

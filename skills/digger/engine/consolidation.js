@@ -1,5 +1,5 @@
 export const meta = {
-  name: 'kopatel-consolidate',
+  name: 'digger-consolidate',
   description: 'Fan out one agent per subtopic + per cross-cutting theme to merge raw entries/ into clean deduplicated digests, then one agent writes the OVERVIEW with a comparison matrix. Schema-free (agents write files), idempotent, batched.',
   phases: [
     { title: 'Load', detail: 'one agent reads taxonomy.json -> returns the subtopic + cross-cutting lists' },

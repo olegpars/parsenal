@@ -1,4 +1,4 @@
-// init-dig.mjs — scaffold one self-contained "dig" (deep-research run) for the kopatel skill.
+// init-dig.mjs — scaffold one self-contained "dig" (deep-research run) for the digger skill.
 //
 //   node init-dig.mjs "<topic text>" "<slug>" "<base-dir>"
 //
@@ -24,7 +24,7 @@ const ENGINE = path.dirname(fileURLToPath(import.meta.url));
 //   --adopt   attach/upgrade the engine onto an EXISTING dig dir (e.g. a KB built by the older
 //             reference engine, or to push an engine update into a live dig). Never clobbers
 //             content (entries/, digests, taxonomy.json, frontier/seen/sources) — only (re)writes
-//             the engine copies in _meta/ and fills missing dirs. This is what makes kopatel ONE
+//             the engine copies in _meta/ and fills missing dirs. This is what makes digger ONE
 //             engine that can both start fresh and continue/adopt an existing dig from disk.
 const ADOPT = process.argv.includes('--adopt');
 const pos = process.argv.slice(2).filter(a => !a.startsWith('--'));
@@ -102,7 +102,7 @@ if (fs.existsSync(digJsonPath)) {
 // README stub so the dig folder is self-explanatory if found cold (don't overwrite an existing one).
 const readme = `# Dig: ${topic}
 
-Deep-research knowledge base built by the **kopatel** skill.
+Deep-research knowledge base built by the **digger** skill.
 
 - \`entries/\`       raw audit trail — one file per researched source (\`<id>.<subtopic>.<short>.md\`)
 - \`subtopics/\`     consolidated digest per subtopic (the product)

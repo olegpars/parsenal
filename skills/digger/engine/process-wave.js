@@ -1,4 +1,4 @@
-// process-wave.js — per-wave persistence for the kopatel dig loop. Two ingestion modes:
+// process-wave.js — per-wave persistence for the digger dig loop. Two ingestion modes:
 //
 //   node process-wave.js <workflow-output-file> <waveNumber>   (interactive: Workflow result file)
 //   node process-wave.js --sidecars <waveNumber>               (headless: per-agent sidecar JSONs)
@@ -155,7 +155,7 @@ fs.writeFileSync(path.join(DIG, 'frontier.md'), fmd, 'utf8');
 
 // ---- CHANGELOG append ----
 const clPath = path.join(DIG, 'CHANGELOG.md');
-let cl = fs.existsSync(clPath) ? fs.readFileSync(clPath, 'utf8') : '# CHANGELOG — kopatel waves\n\n';
+let cl = fs.existsSync(clPath) ? fs.readFileSync(clPath, 'utf8') : '# CHANGELOG — digger waves\n\n';
 const pmLine = Object.keys(perSubtopic).sort().map(m => `${m}:${perSubtopic[m]}`).join(', ');
 cl += `## Wave ${wave}\n`;
 cl += `- entries written: ${entries.length} (total claims: ${data.total_claims ?? '?'})\n`;

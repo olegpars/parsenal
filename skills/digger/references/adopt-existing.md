@@ -1,6 +1,6 @@
 # Adopt Existing Research
 
-kopatel is one engine. If a useful research folder already exists, do not fork a second engine for it. Adopt the folder, attach kopatel's `_meta` scripts, and continue from disk state.
+digger is one engine. If a useful research folder already exists, do not fork a second engine for it. Adopt the folder, attach digger's `_meta` scripts, and continue from disk state.
 
 `--adopt` overwrites only engine copies in `_meta/` and creates missing standard directories. It does not delete entries, digests, taxonomy, frontier, seen targets, or sources.
 
@@ -42,12 +42,12 @@ Use this shape:
     "brand_sub":"Deep research",
     "title":"Research Knowledge Base",
     "tagline":"Evidence-ranked notes and digests.",
-    "foot":"Built with kopatel"
+    "foot":"Built with digger"
   }
 }
 ```
 
-Entry filenames do not need to be renamed if `globs` cover them. New kopatel entries use `<id>.<subtopic_slug>.<short>.md`.
+Entry filenames do not need to be renamed if `globs` cover them. New digger entries use `<id>.<subtopic_slug>.<short>.md`.
 
 ## Procedure
 
@@ -57,4 +57,4 @@ Entry filenames do not need to be renamed if `globs` cover them. New kopatel ent
 4. Run `build-site.mjs` to verify the adopted taxonomy points to real digests.
 5. Resume from the latest non-empty `frontier-wN.json`, or bump `CONSOLIDATION_LABEL` and reconsolidate.
 
-The goal is to conform the folder to kopatel once, then keep the engine simple.
+The goal is to conform the folder to digger once, then keep the engine simple.

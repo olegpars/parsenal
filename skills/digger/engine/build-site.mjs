@@ -73,7 +73,7 @@ const KBDATA = {
       { n: String(sources), l: 'unique sources' },
       { n: 'A–D', l: 'credibility tiers' },
     ],
-    foot: site.foot || 'kopatel dig',
+    foot: site.foot || 'digger dig',
     built,
   },
   docs,

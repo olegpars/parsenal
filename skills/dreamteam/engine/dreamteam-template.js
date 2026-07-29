@@ -1,4 +1,4 @@
-// brigada-template.js - one-shot multi-agent expert council workflow.
+// dreamteam-template.js - one-shot multi-agent expert council workflow.
 // The orchestrator replaces placeholders before starting Workflow. The raw
 // template is intentionally syntax-checkable before replacement.
 //
@@ -28,8 +28,8 @@ const parseJsonPlaceholder = (value, fallback) => {
 }
 
 export const meta = {
-  name: 'brigada-{{TOPIC_SLUG}}',
-  description: 'brigada: {{TOPIC_TITLE}}',
+  name: 'dreamteam-{{TOPIC_SLUG}}',
+  description: 'dreamteam: {{TOPIC_TITLE}}',
   phases: [
     { title: 'Brief', detail: 'Opus brief architect', model: 'opus' },
     { title: 'Assignment', detail: 'Opus designs roles, personas, and sharp questions', model: 'opus' },
@@ -50,7 +50,7 @@ const CLARIFY_CAP = parseIntPlaceholder('{{CLARIFY_CAP}}', 8)
 const DATE = placeholder('{{DATE}}', 'YYYY-MM-DD')
 const RAW_CONTEXT = parseJsonPlaceholder(String.raw`{{RAW_CONTEXT_JSON}}`, '')
 const ARTIFACTS = parseJsonPlaceholder(String.raw`{{ARTIFACTS_JSON}}`, [])
-const OUT_PATH = parseJsonPlaceholder(String.raw`{{OUT_PATH_JSON}}`, './councils/brigada.md')
+const OUT_PATH = parseJsonPlaceholder(String.raw`{{OUT_PATH_JSON}}`, './councils/dreamteam.md')
 
 const LANG = {
   en: {
@@ -61,7 +61,7 @@ const LANG = {
     modeUnderstanding: 'UNDERSTANDING - the council builds a fast map of the topic; no decision is required.',
     artifactsRequired: 'MUST inspect these artifacts yourself with the Read tool:',
     artifactsNone: '(no local artifacts were provided)',
-    decisionSections: `# Brigada: {{TOPIC_TITLE}} - ${DATE}
+    decisionSections: `# Dreamteam: {{TOPIC_TITLE}} - ${DATE}
 (header: mode, one-line council roster, run context)
 ## Context and Goal
 ## Consensus
@@ -73,7 +73,7 @@ const LANG = {
 ## Open questions for the user (only truly blocking; otherwise - "None")
 ## Decisions
 _Filled after discussion._`,
-    understandingSections: `# Brigada: {{TOPIC_TITLE}} - ${DATE}
+    understandingSections: `# Dreamteam: {{TOPIC_TITLE}} - ${DATE}
 (header: mode, one-line council roster, run context)
 ## Topic Map
 ## Main Takeaways

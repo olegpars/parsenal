@@ -1,5 +1,5 @@
 export const meta = {
-  name: 'kopatel-wave-n',
+  name: 'digger-wave-n',
   description: 'One research wave: self-locate the latest frontier, load the top-N batch, web-research each item (one agent per item) into an entry file, and surface new_frontier so the dig keeps deepening',
   phases: [
     { title: 'Load', detail: 'one agent finds the highest frontier-wN.json, returns the top-N batch + extraction spec + subtopic list' },

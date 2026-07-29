@@ -1,6 +1,6 @@
 # Unattended Runs
 
-Brigada is designed for one approval at launch. In stricter harnesses, the platform can still ask for approvals on orchestration calls such as Workflow, Agent, web tools, file writes, node extraction, or repository commands.
+Dreamteam is designed for one approval at launch. In stricter harnesses, the platform can still ask for approvals on orchestration calls such as Workflow, Agent, web tools, file writes, node extraction, or repository commands.
 
 The correct fix is an armed allowlist configured by the user or administrator. The skill must not grant itself permissions, edit global settings, or prepare a bypass.
 

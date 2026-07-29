@@ -1,6 +1,6 @@
 # Overnight Runner
 
-This guide describes Recipe B for a headless overnight kopatel dig. Use it when a `full` dig is expected to run for hours and nobody will be present to approve prompts.
+This guide describes Recipe B for a headless overnight digger dig. Use it when a `full` dig is expected to run for hours and nobody will be present to approve prompts.
 
 Recipe B is intentionally small and portable. The runner does not create git worktrees, does not push, and does not depend on private infrastructure. The dig lives in the user's project, normally under `./digs/<slug>/`.
 
@@ -39,13 +39,13 @@ Terminal behavior:
 Run from PowerShell:
 
 ```powershell
-.\.claude\skills\kopatel\scripts\overnight.ps1 -Goal .\GOAL.md -WorkDir . -MaxIterations 40
+.\.claude\skills\digger\scripts\overnight.ps1 -Goal .\GOAL.md -WorkDir . -MaxIterations 40
 ```
 
 Run from bash:
 
 ```bash
-.claude/skills/kopatel/scripts/overnight.sh --goal ./GOAL.md --work-dir . --max-iterations 40
+.claude/skills/digger/scripts/overnight.sh --goal ./GOAL.md --work-dir . --max-iterations 40
 ```
 
 ## Pre-Flight
@@ -62,7 +62,7 @@ If this fails, stop. Common causes are expired CLI authentication, a missing log
 
 In headless mode, an unlisted permission is a silent deny, not a prompt. Do not assume the agent will ask for approval later. The project `settings.json` needs both an allow list and a deny list that match the intended dig.
 
-Example armed allow list for a kopatel dig:
+Example armed allow list for a digger dig:
 
 ```json
 {
@@ -115,9 +115,9 @@ Check artifacts first:
 Use this GOAL template as a starting point. Replace `<DIG>` and `<slug>` before launch.
 
 ```md
-# kopatel overnight wave for <slug>
+# digger overnight wave for <slug>
 
-You are running one unattended kopatel wave per iteration.
+You are running one unattended digger wave per iteration.
 
 ## Scope
 

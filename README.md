@@ -1,12 +1,11 @@
 # Parsival
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, three skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, two skills.
 
 | Skill | What it does |
 |---|---|
-| `parsival-seedance` | Director-grade YAML storyboard prompts for ByteDance Seedance 2.0: timestamped multi-shot, character modeling, reference-image anti-drift discipline. |
-| `parsival-brigada` | One-shot multi-agent expert council for hard decisions: role personas, a verifier, an adversarial critic, a gap-fill round, synthesis into a single document. |
-| `parsival-kopatel` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
+| `dreamteam` | One-shot multi-agent expert council for hard decisions: role personas, a verifier, an adversarial critic, a gap-fill round, synthesis into a single document. |
+| `digger` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
 
 ## Install
 
@@ -15,26 +14,15 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 /plugin install parsival@parsival
 ```
 
-All three skills become available and trigger on their own phrases.
+Both skills become available and trigger on their own phrases.
 
 Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsival and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`).
 
-## parsival-seedance
+## dreamteam
 
-Skills for AI video creators, built for Claude Code and compatible agent runtimes. Battle-tested on real production work.
+`dreamteam` is a one-shot multi-agent expert council skill. It turns one concrete question into a council run: a council of role personas (6-8 by default, 3-12 via modifiers) research in parallel, a verifier checks load-bearing claims, an adversarial critic attacks weak points, a gap-fill round closes important holes, and a synthesizer writes one decision document.
 
-Director-grade YAML prompter for ByteDance Seedance 2.0: timestamped multi-shot storyboards, character modeling blocks, reference-image anti-drift discipline, genre presets, platform-aware length budgeting.
-
-Requirements:
-
-- Claude Code (or any runtime that supports SKILL.md-format agent skills)
-- A Seedance 2.0 access point (Dreamina, Jimeng, CapCut, or API) to run the generated prompts
-
-## parsival-brigada
-
-`parsival-brigada` is a one-shot multi-agent expert council skill. It turns one concrete question into a council run: a council of role personas (6-8 by default, 3-12 via modifiers) research in parallel, a verifier checks load-bearing claims, an adversarial critic attacks weak points, a gap-fill round closes important holes, and a synthesizer writes one decision document.
-
-Brigada means "brigade" or "crew". It is built for focused decisions and fast understanding, not for ordinary brainstorming or exhaustive multi-hour research.
+Dreamteam is built for focused decisions and fast understanding, not for ordinary brainstorming or exhaustive multi-hour research.
 
 ### What It Does
 
@@ -42,7 +30,7 @@ Brigada means "brigade" or "crew". It is built for focused decisions and fast un
 - Assigns expert personas with sharp, checkable questions.
 - Runs council members in parallel with artifact reading and web research.
 - Adds verification, adversarial critique, and targeted gap-fill.
-- Produces a single markdown document under a relative output path such as `./councils/<slug>/brigada-<date>.md`.
+- Produces a single markdown document under a relative output path such as `./councils/<slug>/dreamteam-<date>.md`.
 
 ### Modes
 
@@ -59,22 +47,22 @@ Brigada means "brigade" or "crew". It is built for focused decisions and fast un
 
 ### Requirements
 
-- A host that supports Workflow scripts with `agent`, `parallel`, `phase`, `log`, and nested `workflow` for multibrigada.
+- A host that supports Workflow scripts with `agent`, `parallel`, `phase`, `log`, and nested `workflow` for multidreamteam.
 - Node.js for `engine/extract-doc.mjs`.
 - Web tools available to workflow agents when current external facts matter.
 - Write access to the chosen output directory.
 
 ### Files
 
-- `skills/parsival-brigada/SKILL.md`: orchestration instructions.
-- `skills/parsival-brigada/engine/brigada-template.js`: single council workflow template.
-- `skills/parsival-brigada/engine/multibrigada-template.js`: batch master workflow.
-- `skills/parsival-brigada/engine/extract-doc.mjs`: fallback document extractor.
-- `skills/parsival-brigada/references/unattended.md`: generic permission guidance for unattended runs.
+- `skills/dreamteam/SKILL.md`: orchestration instructions.
+- `skills/dreamteam/engine/dreamteam-template.js`: single council workflow template.
+- `skills/dreamteam/engine/multidreamteam-template.js`: batch master workflow.
+- `skills/dreamteam/engine/extract-doc.mjs`: fallback document extractor.
+- `skills/dreamteam/references/unattended.md`: generic permission guidance for unattended runs.
 
-## parsival-kopatel
+## digger
 
-`parsival-kopatel` is an autonomous multi-hour deep-research pipeline for Claude Code. It turns an explicit "dig deep into this topic" request into a reusable knowledge base: scout council -> wave loop -> consolidation -> static site.
+`digger` is an autonomous multi-hour deep-research pipeline for Claude Code. It turns an explicit "dig deep into this topic" request into a reusable knowledge base: scout council -> wave loop -> consolidation -> static site.
 
 Every claim is tagged with an A/B/C/D confidence tier, from primary-source evidence to weak folklore. Raw entries, consolidated digests, and the website remain separate so the result is both auditable and readable.
 
@@ -82,7 +70,7 @@ Every claim is tagged with an A/B/C/D confidence tier, from primary-source evide
 
 - Claude Code.
 - A plan suitable for long multi-agent runs. Claude Max is recommended for full digs because waves can run for hours and touch many sources.
-- A project directory where dig output can be written. By default, kopatel uses `./digs/<slug>/`.
+- A project directory where dig output can be written. By default, digger uses `./digs/<slug>/`.
 
 ### Quickstart
 
@@ -92,7 +80,7 @@ Ask for a focused dig:
 Dig deep into WebGPU debugging tools and build a knowledge base.
 ```
 
-`parsival-kopatel` will:
+`digger` will:
 
 1. Confirm the topic and mode.
 2. Save output under `./digs/<slug>/` unless you choose another base.
@@ -102,7 +90,7 @@ Dig deep into WebGPU debugging tools and build a knowledge base.
 6. Consolidate entries into subtopic and cross-cutting digests.
 7. Build `dist/index.html`.
 
-For long `full` runs, arm the supervised allowlist described in `skills/parsival-kopatel/references/unattended.md` before stepping away.
+For long `full` runs, arm the supervised allowlist described in `skills/digger/references/unattended.md` before stepping away.
 
 ### Result Structure
 
