@@ -1,13 +1,13 @@
 {
-  "name": "parsival",
-  "description": "Parsival — public Claude Code skill system by @olegpars.",
+  "name": "parsenal",
+  "description": "PARSENAL — public Claude Code skill system by @olegpars.",
   "owner": { "name": "Oleg Parshentsev", "email": "olegpars@gmail.com" },
   "plugins": [
     {
-      "name": "parsival",
+      "name": "parsenal",
       "source": "./",
       "description": "One plugin, two skills: dreamteam (one-shot multi-agent expert council for hard decisions), digger (autonomous multi-hour deep-research pipeline with confidence-tiered knowledge base).",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "author": { "name": "Oleg Parshentsev" },
       "category": "productivity"
     }

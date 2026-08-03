@@ -1,6 +1,6 @@
 ---
 name: dreamteam
-description: Use when the user wants a one-shot multi-agent expert council on a hard decision or an unfamiliar topic — phrases like "convene a council", "get expert takes on X", "stress-test this decision from multiple angles", "dreamteam on X". Part of the Parsival skill system. Not for multi-hour exhaustive topic research (that is digger).
+description: Use when the user wants a one-shot multi-agent expert council on a hard decision or an unfamiliar topic — phrases like "convene a council", "get expert takes on X", "stress-test this decision from multiple angles", "dreamteam on X". Part of the PARSENAL skill system. Not for multi-hour exhaustive topic research (that is digger).
 ---
 
 # dreamteam

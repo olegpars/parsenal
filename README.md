@@ -1,4 +1,4 @@
-# Parsival
+# PARSENAL
 
 Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, two skills.
 
@@ -10,13 +10,13 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 ## Install
 
 ```text
-/plugin marketplace add olegpars/parsival
-/plugin install parsival@parsival
+/plugin marketplace add olegpars/parsenal
+/plugin install parsenal@parsenal
 ```
 
 Both skills become available and trigger on their own phrases.
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsival and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`).
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`).
 
 ## dreamteam
 

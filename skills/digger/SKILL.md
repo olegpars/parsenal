@@ -1,6 +1,6 @@
 ---
 name: digger
-description: Use when the user explicitly asks to dig deeply or exhaustively into a topic, build a reusable knowledge base, continue an existing dig, or adopt an existing research folder with digger. Part of the Parsival skill system. Triggers include "dig deep into X", "exhaustively research X", "build a knowledge base on X", and similar explicit requests.
+description: Use when the user explicitly asks to dig deeply or exhaustively into a topic, build a reusable knowledge base, continue an existing dig, or adopt an existing research folder with digger. Part of the PARSENAL skill system. Triggers include "dig deep into X", "exhaustively research X", "build a knowledge base on X", and similar explicit requests.
 ---
 
 # digger
