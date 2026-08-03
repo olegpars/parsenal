@@ -1,12 +1,13 @@
 # PARSENAL
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, three skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, four skills.
 
 | Skill | What it does |
 |---|---|
 | `dreamteam` | One-shot multi-agent expert council for hard decisions: role personas, a verifier, an adversarial critic, a gap-fill round, synthesis into a single document. |
 | `digger` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
 | `meaning` | Work out WHAT to say before choosing the form: extract meaning from material, generate meaning directions, audit a text/concept against its meanings, compare concepts, translate a meaning core into a format. |
+| `worldbuilder` | Serial fictional worlds for short-form video: a world bible built file-by-file with HITL approval, canon evolution with conflict/retcon resolution, episode drafting, and read-only continuity checks. |
 
 ## Install
 
@@ -147,6 +148,25 @@ Every mode centers on a **Meaning Map** -- a structured card (subject, observati
 - `skills/meaning/research-protocol.md`: the RESEARCH-mode protocol for external briefs.
 - `skills/meaning/adapters/`: format-specific renders.
 - `skills/meaning/memory/`: empty templates for a user's own recurring questions, rejected cliches, and approved meaning cards -- the skill can grow project memory over time, but ships with no prefilled entries.
+
+## worldbuilder
+
+`worldbuilder` is a conversational engine for developing serial fictional worlds for short-form video content (Reels/Shorts/TikTok with recurring creatures, locations, objects), built around a world bible format. It is generic -- not tied to any single world.
+
+A world is a folder `worlds/<slug>/` in your working repo, created by copying a `worlds/_template/` bible template (kept file-by-file: creative constitution, world overview, creature/location/object records, episode architecture, an append-only continuity log).
+
+### Modes
+
+- `CREATE`: build a new world's bible file-by-file, starting with a mandatory call to the `meaning` skill for the meaning core, each file shown and approved before it is written.
+- `EVOLVE`: check a proposed canon change against the existing bible, propose a conflict-free resolution or an explicitly labeled retcon, then write it plus a new continuity-log entry after approval.
+- `STORY`: draft an episode from the world's bible and continuity log, using generators such as Sanderson's Third Law and an engagement loop; canon consequences require a separate explicit EVOLVE.
+- `CHECK`: read-only compatibility check of an idea/text against the bible's immutable rules, iceberg markers, and continuity state.
+
+The HITL boundary is absolute: nothing is written to a world's canon (bible file, record card, continuity log) before the user has explicitly approved that specific content.
+
+### Files
+
+- `skills/worldbuilder/SKILL.md`: modes, the HITL constitution, and hard rules.
 
 ## License
 
