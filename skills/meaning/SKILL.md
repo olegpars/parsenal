@@ -1,6 +1,6 @@
 ---
 name: meaning
-description: Use when the user wants to work out WHAT to say before choosing the form -- extract meaning from material, generate meaning directions, audit a text or concept against its meanings, compare concepts, or translate a meaning core into a format such as a paragraph, post, script, artwork concept, or open-call application. Triggers -- "/meaning", "meaning map", "meaning audit", "what's the thesis here". Part of the PARSENAL skill system. User-invoked only -- do not auto-trigger on every writing request.
+description: Use when the user wants to work out WHAT to say before choosing the form -- extract meaning from material, generate meaning directions, audit a text or concept against its meanings, compare concepts, or translate a meaning core into a format such as a paragraph, post, script, artwork concept, or open-call application. Triggers -- "/parsenal:meaning" (bare "/meaning" only applies to a manual single-skill install, see the PARSENAL README), "meaning map", "meaning audit", "what's the thesis here". Part of the PARSENAL skill system. User-invoked only -- do not auto-trigger on every writing request.
 ---
 
 # Meaning

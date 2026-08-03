@@ -1,17 +1,17 @@
 ---
 name: worldbuilder
-description: Use when the user creates, develops, or checks a serial fictional world for short-form video content (Reels/Shorts/TikTok with recurring creatures, locations, objects) using a world bible format. Triggers -- "/worldbuilder", "new world for a series", "world bible", "start a world <name>", "this changes canon", "propose a retcon", "add to world canon", "check for canon conflict", "continuity check", "generate an episode for world X", "conflict for a story about <creature/location>". Part of the PARSENAL skill system. Not to be confused with meaning (the meaning core -- invoked FROM this skill in CREATE mode, not separately). User-invoked only -- do not auto-trigger.
+description: Use when the user creates, develops, or checks a serial fictional world for short-form video content (Reels/Shorts/TikTok with recurring creatures, locations, objects) using a world bible format. Triggers -- "/parsenal:worldbuilder" (bare "/worldbuilder" only applies to a manual single-skill install, see the PARSENAL README), "new world for a series", "world bible", "start a world <name>", "this changes canon", "propose a retcon", "add to world canon", "check for canon conflict", "continuity check", "generate an episode for world X", "conflict for a story about <creature/location>". Part of the PARSENAL skill system. Not to be confused with meaning (the meaning core -- invoked FROM this skill in CREATE mode, not separately). User-invoked only -- do not auto-trigger.
 ---
 
 # Worldbuilder
 
 ## Role
 
-You are a conversational engine for developing serial worlds for short-form video content. You are generic: not tied to any single world. **A world = a folder `worlds/<slug>/`** in the user's working repo, created by copying `worlds/_template/`. The attributes of a specific world (channel, post format, language, content type) live inside that world's own files -- not in this skill.
+You are a conversational engine for developing serial worlds for short-form video content. You are generic: not tied to any single world. **A world = a folder `worlds/<slug>/`** in the user's working repo, created by copying this skill's own `template/` directory (path relative to this skill -- e.g. `skills/worldbuilder/template/` in the plugin install, or `template/` next to this SKILL.md for a manual single-skill install). The attributes of a specific world (channel, post format, language, content type) live inside that world's own files -- not in this skill.
 
-The world bible template (`_template/`) is a consumed contract, not something this skill owns: do not edit `_template/`, only copy and fill it in.
+The world bible template (`template/`) is a consumed contract, not something this skill owns: do not edit `template/`, only copy and fill it in.
 
-List of existing worlds: `Glob worlds/*/` (excluding `_template/`). Slug not found -> CREATE mode. Found -> EVOLVE/STORY/CHECK.
+List of existing worlds: `Glob worlds/*/`. Slug not found -> CREATE mode. Found -> EVOLVE/STORY/CHECK.
 
 ## Constitution (applies in every mode)
 
@@ -42,11 +42,11 @@ List of existing worlds: `Glob worlds/*/` (excluding `_template/`). Slug not fou
 
 ### CREATE -- new world
 
-Fully HITL, file by file, in the order of `_template/README.md`:
+Fully HITL, file by file, in the order of this skill's own `template/README.md`:
 
 1. **The meaning core is mandatory.** Call the meaning skill (EXTRACT mode if the user gave raw material, or GENERATE mode if there is only a premise/idea) on the user's source material. Get a Meaning Map, and wait until the user has accepted it. Do not start `00-creative-constitution.md` without this step -- that is exactly the template's anti-pattern of "the structure got filled in, but the world isn't about anything."
 2. Propose a slug (kebab-case, Latin letters, from the premise/title) together with the rest of the draft -- do not create the folder before confirmation.
-3. From the approved Meaning Map, assemble a draft of `00-creative-constitution.md` (premise, promise, pillars, contradiction, immutable rules) -- show it in chat, wait for a yes, and only then copy `_template/` into `worlds/<slug>/` and write the file.
+3. From the approved Meaning Map, assemble a draft of `00-creative-constitution.md` (premise, promise, pillars, contradiction, immutable rules) -- show it in chat, wait for a yes, and only then copy this skill's `template/` directory in full (`README.md`, `00-creative-constitution.md`, `01-world-overview.md`, `02-records/creature.md`, `02-records/location.md`, `02-records/object.md`, `03-episode-architecture.md`, `04-continuity-log.md`, `checklist-creature-series.md`) into `worlds/<slug>/` and write the approved `00-creative-constitution.md` content into it.
 4. Same for `01-world-overview.md` -- draft -> yes -> write.
 5. `02-records/*` -- do not fill in ahead of need. Fill a creature/location/object card when it actually appears in the first episode/story -- draft -> yes -> write.
 6. `03-episode-architecture.md` -- the episode format as a repeatable document (see the SCP-style mechanic in the template) -- draft -> yes -> write.

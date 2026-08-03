@@ -16,9 +16,9 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 /plugin install parsenal@parsenal
 ```
 
-Both skills become available and trigger on their own phrases.
+All four skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning` and `/parsenal:worldbuilder` (not the bare `/meaning` / `/worldbuilder` forms).
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`).
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` triggers apply.
 
 ## dreamteam
 
@@ -153,7 +153,7 @@ Every mode centers on a **Meaning Map** -- a structured card (subject, observati
 
 `worldbuilder` is a conversational engine for developing serial fictional worlds for short-form video content (Reels/Shorts/TikTok with recurring creatures, locations, objects), built around a world bible format. It is generic -- not tied to any single world.
 
-A world is a folder `worlds/<slug>/` in your working repo, created by copying a `worlds/_template/` bible template (kept file-by-file: creative constitution, world overview, creature/location/object records, episode architecture, an append-only continuity log).
+A world is a folder `worlds/<slug>/` in your working repo, created by copying the bible template bundled inside this skill (`skills/worldbuilder/template/`, kept file-by-file: creative constitution, world overview, creature/location/object records, episode architecture, a seriality checklist, an append-only continuity log).
 
 ### Modes
 
@@ -167,6 +167,7 @@ The HITL boundary is absolute: nothing is written to a world's canon (bible file
 ### Files
 
 - `skills/worldbuilder/SKILL.md`: modes, the HITL constitution, and hard rules.
+- `skills/worldbuilder/template/`: the bundled world bible template CREATE copies from -- `README.md`, `00-creative-constitution.md`, `01-world-overview.md`, `02-records/` (creature/location/object cards), `03-episode-architecture.md`, `04-continuity-log.md`, `checklist-creature-series.md`.
 
 ## License
 
