@@ -6,7 +6,7 @@
     {
       "name": "parsenal",
       "source": "./",
-      "description": "One plugin, two skills: dreamteam (one-shot multi-agent expert council for hard decisions), digger (autonomous multi-hour deep-research pipeline with confidence-tiered knowledge base).",
+      "description": "One plugin, three skills: dreamteam (one-shot multi-agent expert council for hard decisions), digger (autonomous multi-hour deep-research pipeline with confidence-tiered knowledge base), meaning (work out WHAT to say before choosing the form).",
       "version": "3.0.0",
       "author": { "name": "Oleg Parshentsev" },
       "category": "productivity"

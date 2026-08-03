@@ -1,11 +1,12 @@
 # PARSENAL
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, two skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, three skills.
 
 | Skill | What it does |
 |---|---|
 | `dreamteam` | One-shot multi-agent expert council for hard decisions: role personas, a verifier, an adversarial critic, a gap-fill round, synthesis into a single document. |
 | `digger` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
+| `meaning` | Work out WHAT to say before choosing the form: extract meaning from material, generate meaning directions, audit a text/concept against its meanings, compare concepts, translate a meaning core into a format. |
 
 ## Install
 
@@ -117,6 +118,35 @@ digs/<slug>/
 - `scripts/overnight.*` and `references/overnight-runner.md`: portable headless overnight runner for long `full` digs.
 
 The public skill uses a supervised allowlist plus heartbeat for long runs. It does not include private runner infrastructure.
+
+## meaning
+
+`meaning` works out WHAT to say before choosing the form. A post, a script, an artwork concept, and an open-call application are treated as different renders of one underlying meaning construction, not separate tasks.
+
+It is a conversational skill: no engine scripts, just SKILL.md plus reference files that Claude reads on demand.
+
+### Modes
+
+- `RESEARCH`: find a territory for an external brief (open call, venue, commission) before generating directions.
+- `EXTRACT`: pull the meaning already present in a material without inventing anything.
+- `GENERATE`: propose 3-5 meaning directions that differ by thesis, not phrasing.
+- `AUDIT`: diagnose a finished text/concept against its meanings before proposing any edits.
+- `SELECT`: compare 2+ directions with critique-before-scoring and an anti-homogenization check.
+- `TRANSLATE`: render an approved Meaning Map into a target format via its adapter.
+
+Every mode centers on a **Meaning Map** -- a structured card (subject, observation, tension, claim, stakes, audience_shift, embodiment, counter_reading, grounding, authorship) that must be shown and approved before any final text is written.
+
+### Adapters
+
+`skills/meaning/adapters/` covers paragraph/post, video script (reel/short), artwork concept/artist statement, and open-call application. Each adapter maps the generic Meaning Map fields onto format-specific checks.
+
+### Files
+
+- `skills/meaning/SKILL.md`: modes, the Meaning Map, the constitution, and hard rules.
+- `skills/meaning/failure-modes.md`: a 12-mode catalog of meaning failures (pseudo-depth, hermetic drift, slop, and others), each with a procedural test.
+- `skills/meaning/research-protocol.md`: the RESEARCH-mode protocol for external briefs.
+- `skills/meaning/adapters/`: format-specific renders.
+- `skills/meaning/memory/`: empty templates for a user's own recurring questions, rejected cliches, and approved meaning cards -- the skill can grow project memory over time, but ships with no prefilled entries.
 
 ## License
 
