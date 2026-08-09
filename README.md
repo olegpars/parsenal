@@ -1,6 +1,6 @@
 # PARSENAL
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, four skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, five skills.
 
 | Skill | What it does |
 |---|---|
@@ -8,6 +8,7 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 | `digger` | Autonomous multi-hour deep-research pipeline: scout council -> wave loop -> consolidation -> static knowledge-base site, with A/B/C/D confidence tiers on every claim. |
 | `meaning` | Work out WHAT to say before choosing the form: extract meaning from material, generate meaning directions, audit a text/concept against its meanings, compare concepts, translate a meaning core into a format. |
 | `worldbuilder` | Serial fictional worlds for short-form video: a world bible built file-by-file with HITL approval, canon evolution with conflict/retcon resolution, episode drafting, and read-only continuity checks. |
+| `ogre` | Two-headed orchestration: Opus runs the pipeline and writes self-contained specs into GitHub issue bodies, a second model of a different architecture answers every non-trivial fork blind, and hands execute. |
 
 ## Install
 
@@ -16,9 +17,9 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 /plugin install parsenal@parsenal
 ```
 
-All four skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning` and `/parsenal:worldbuilder` (not the bare `/meaning` / `/worldbuilder` forms).
+All five skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder` and `/parsenal:ogre` (not the bare `/meaning` / `/worldbuilder` / `/ogre` forms).
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` triggers apply.
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` triggers apply.
 
 ## dreamteam
 
@@ -168,6 +169,41 @@ The HITL boundary is absolute: nothing is written to a world's canon (bible file
 
 - `skills/worldbuilder/SKILL.md`: modes, the HITL constitution, and hard rules.
 - `skills/worldbuilder/template/`: the bundled world bible template CREATE copies from -- `README.md`, `00-creative-constitution.md`, `01-world-overview.md`, `02-records/` (creature/location/object cards), `03-episode-architecture.md`, `04-continuity-log.md`, `checklist-creature-series.md`.
+
+## ogre
+
+`ogre` is an orchestration mode: one head runs the pipeline, a second head of a **different architecture** answers every non-trivial fork blind, before it can be anchored by the first head's opinion. A single model is wrong exactly where it cannot see its own blind spots; two models of different architectures are wrong differently.
+
+| Role | Who | What it does |
+|---|---|---|
+| Head 1 | Opus (the current session) | Runs the pipeline, writes self-contained specs into GitHub issue bodies, synthesizes, makes the final call. Has hands, inside explicit limits. |
+| Head 2 | GPT-5.6-sol via Codex, read-only | Answers the fork **independently and blind** -- not a review of Opus's answer, its own answer. |
+| Hands | Codex `--write`, headless Grok, Sonnet | Execution without judgement: coding and line-by-line review, scouting, `gh` operations, verification, acceptance. |
+
+The blind protocol is the point: Opus states its own answer **first**, then sends the question with no hint of that answer, then synthesizes on the merits. A disagreement is always surfaced to the user as a line, never quietly resolved. Money, scope and irreversible actions form a **separate gate** that is not tied to whether the heads agree -- two models agreeing is an argument about correctness, not an authorization.
+
+### What Is Actually Enforced
+
+- **Issue-first.** One-line exception only, and only inside a file the user named -- the moment the diff grows or behaviour changes at a system boundary, an issue exists first.
+- **Falsifiable DoD with a negative control.** A check that would also pass on the code *before* the change proves nothing and counts as "unverifiable".
+- **Opus never accepts its own work.** A cross-model verification matrix: whoever wrote it does not sign it off.
+- **Observation is not a verdict.** "Works", "checked it", "nothing broke" are banned in reports until a verifier line of the form `<model> ran <command> -> <fact>` exists.
+- **A grounding gate for synthesis tasks.** A guide/summary/digest is cross-checked verbatim against the deepest source, not against a derived corpus.
+- **A red-flag table** -- 25 specific rationalizations that surface under deadline, sunk cost and a filling context window, each paired with its counter.
+
+### Requirements
+
+- **Required for the second head and the coding hand:** the Codex plugin -- `/plugin marketplace add openai/codex-plugin-cc` -> `/plugin install codex@openai-codex` -> `/reload-plugins` -> `/codex:setup`. Without it the mode runs single-headed and marks every fork that went through without a second opinion.
+- **Optional:** headless Grok (`grok.exe`, SuperGrok subscription) as a scout / second driver; an external terminal orchestrator for visible worker streams.
+- A GitHub repo with `gh` available: issue bodies are where specs live, and the issue carries the whole acceptance machinery -- DoD, verifier, journal, closing comment.
+
+### Files
+
+- `skills/ogre/SKILL.md`: the mode -- limits on the head's hands, the second-opinion protocol, the money/scope gate, the pipeline, hand channels, the journal, the red-flag table.
+
+### Lineage
+
+Forked from a private predecessor mode built on the methodology of Sergey (serejaris)'s streams (agent map, cross-model verification, Grok as scout). Falsifiable DoD, the ban on "probably", stop-on-disagreement and the "noticed, didn't touch" rule are adapted from the Rigor Pack by Iwo Szapar. What ogre adds on top: the second head with its blind protocol, hands returned to Opus with explicit limits, and the separate money/scope gate.
 
 ## License
 

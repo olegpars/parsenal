@@ -6,8 +6,8 @@
     {
       "name": "parsenal",
       "source": "./",
-      "description": "One plugin, four skills: dreamteam (one-shot multi-agent expert council for hard decisions), digger (autonomous multi-hour deep-research pipeline with confidence-tiered knowledge base), meaning (work out WHAT to say before choosing the form), worldbuilder (serial fictional worlds for short-form video with a world bible and continuity checks).",
-      "version": "3.0.0",
+      "description": "One plugin, five skills: dreamteam (one-shot multi-agent expert council for hard decisions), digger (autonomous multi-hour deep-research pipeline with confidence-tiered knowledge base), meaning (work out WHAT to say before choosing the form), worldbuilder (serial fictional worlds for short-form video with a world bible and continuity checks), ogre (two-headed orchestration mode where a second model of a different architecture answers every fork blind).",
+      "version": "3.1.0",
       "author": { "name": "Oleg Parshentsev" },
       "category": "productivity"
     }
