@@ -186,10 +186,12 @@ The blind protocol is the point: Opus states its own answer **first**, then send
 
 - **Issue-first.** One-line exception only, and only inside a file the user named -- the moment the diff grows or behaviour changes at a system boundary, an issue exists first.
 - **Falsifiable DoD with a negative control.** A check that would also pass on the code *before* the change proves nothing and counts as "unverifiable".
+- **A DoD item is a command and its expected output verbatim**, not a description in words; a place to edit is addressed by an anchor (heading, function name, quoted line), never by a line number -- line numbers drift after the first edit.
+- **A delegation threshold by class of operation, not by file count.** Batch work, measuring across a set, an exhaustive search and producing the facts a decision rests on go to a hand immediately -- even when doing it yourself would be faster.
 - **Opus never accepts its own work.** A cross-model verification matrix: whoever wrote it does not sign it off.
 - **Observation is not a verdict.** "Works", "checked it", "nothing broke" are banned in reports until a verifier line of the form `<model> ran <command> -> <fact>` exists.
 - **A grounding gate for synthesis tasks.** A guide/summary/digest is cross-checked verbatim against the deepest source, not against a derived corpus.
-- **A red-flag table** -- 25 specific rationalizations that surface under deadline, sunk cost and a filling context window, each paired with its counter.
+- **A red-flag table** -- 16 specific rationalizations that surface under deadline, sunk cost and a filling context window, each paired with what is actually happening.
 
 ### Requirements
 
@@ -199,7 +201,10 @@ The blind protocol is the point: Opus states its own answer **first**, then send
 
 ### Files
 
-- `skills/ogre/SKILL.md`: the mode -- limits on the head's hands, the second-opinion protocol, the money/scope gate, the pipeline, hand channels, the journal, the red-flag table.
+- `skills/ogre/SKILL.md`: the mode -- limits on the head's hands, the second-opinion protocol, the delegation threshold, the starting gate, the pipeline, acceptance, the money/scope gate, the journal, the red-flag table.
+- `skills/ogre/references/channels.md`: commands, flags and field-tested constraints for every channel (Codex as the second head and as a hand, Grok, the Sonnet hand). Read before the first call to a channel in a session.
+- `skills/ogre/references/spec-and-dispatch.md`: the issue body template, executor and verifier envelopes, per-class DoD requirements, the failure ladder, the journal legend, agent survivability.
+- `skills/ogre/references/gates.md`: what counts as money and as scope, what exactly stops, what to do when the user is unavailable, how to phrase the question.
 
 ### Lineage
 
