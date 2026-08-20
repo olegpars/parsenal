@@ -2,7 +2,7 @@
 
 Публичный репо PARSENAL — система скиллов Claude Code (@olegpars): dreamteam, digger, meaning, worldbuilder, ogre, conveyor. Локальная папка и remote сохранили старое имя `parsly`, GitHub редиректит.
 
-Контент публичный. Инвариант публикации — деперсонализация: 0 кириллицы в `skills/` и README, 0 «Oleg» в контенте скиллов, 0 HQ#, 0 локальных путей.
+Контент публичный. Инвариант публикации — деперсонализация: 0 кириллицы в SKILL.md и README (функциональные RU-строки движков — например OUTPUT_LANG='ru' в dreamteam — допустимы), 0 «Oleg» в контенте скиллов, 0 HQ#, 0 локальных путей.
 
 PRE-FLIGHT (INDEX→CROSS-REPO→now.md) — см. global `~/.claude/CLAUDE.md` §8.
 

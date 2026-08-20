@@ -1,6 +1,6 @@
 # PARSENAL
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, five skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, six skills.
 
 | Skill | What it does |
 |---|---|
@@ -9,6 +9,7 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 | `meaning` | Work out WHAT to say before choosing the form: extract meaning from material, generate meaning directions, audit a text/concept against its meanings, compare concepts, translate a meaning core into a format. |
 | `worldbuilder` | Serial fictional worlds for short-form video: a world bible built file-by-file with HITL approval, canon evolution with conflict/retcon resolution, episode drafting, and read-only continuity checks. |
 | `ogre` | Two-headed orchestration: Opus runs the pipeline and writes self-contained specs into GitHub issue bodies, a second model of a different architecture answers every non-trivial fork blind, and hands execute. |
+| `conveyor` | Issue-map auto-execution: one dispatcher session drives an issue's sub-issues to Done in waves of parallel subagents -- frontier, claims, separate verifiers, GitHub bookkeeping -- with a HITL question queue instead of mid-run stalls. |
 
 ## Install
 
@@ -17,9 +18,9 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 /plugin install parsenal@parsenal
 ```
 
-All five skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder` and `/parsenal:ogre` (not the bare `/meaning` / `/worldbuilder` / `/ogre` forms).
+All six skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder`, `/parsenal:ogre` and `/parsenal:conveyor` (not the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` forms).
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` triggers apply.
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` triggers apply.
 
 ## dreamteam
 
@@ -47,6 +48,12 @@ Dreamteam is built for focused decisions and fast understanding, not for ordinar
 - `with preview`: return the proposed role list before the full run.
 - `with verification`: enable verifier in understanding mode.
 - `OUTPUT_LANG='ru'`: final document and agent outputs in Russian. Default is English.
+
+### Quickstart
+
+```text
+Convene a council: should we self-host the vector database or use a managed service?
+```
 
 ### Requirements
 
@@ -142,6 +149,16 @@ Every mode centers on a **Meaning Map** -- a structured card (subject, observati
 
 `skills/meaning/adapters/` covers paragraph/post, video script (reel/short), artwork concept/artist statement, and open-call application. Each adapter maps the generic Meaning Map fields onto format-specific checks.
 
+### Quickstart
+
+```text
+/parsenal:meaning -- audit this draft against its meaning map
+```
+
+### Requirements
+
+- Claude Code only: a conversational skill -- no engine scripts, no extra runtime. SKILL.md plus reference files read on demand.
+
 ### Files
 
 - `skills/meaning/SKILL.md`: modes, the Meaning Map, the constitution, and hard rules.
@@ -164,6 +181,17 @@ A world is a folder `worlds/<slug>/` in your working repo, created by copying th
 - `CHECK`: read-only compatibility check of an idea/text against the bible's immutable rules, iceberg markers, and continuity state.
 
 The HITL boundary is absolute: nothing is written to a world's canon (bible file, record card, continuity log) before the user has explicitly approved that specific content.
+
+### Quickstart
+
+```text
+/parsenal:worldbuilder -- create a new serial world for my short-form video series
+```
+
+### Requirements
+
+- Claude Code only: a conversational engine, no scripts to run.
+- Write access to your working repo: a world lives in `worlds/<slug>/`, copied from the bundled template.
 
 ### Files
 
@@ -193,6 +221,12 @@ The blind protocol is the point: Opus states its own answer **first**, then send
 - **A grounding gate for synthesis tasks.** A guide/summary/digest is cross-checked verbatim against the deepest source, not against a derived corpus.
 - **A red-flag table** -- 16 specific rationalizations that surface under deadline, sunk cost and a filling context window, each paired with what is actually happening.
 
+### Quickstart
+
+```text
+/parsenal:ogre -- two heads on this: migrate the billing cron to the new scheduler
+```
+
 ### Requirements
 
 - **Required for the second head and the coding hand:** the Codex plugin -- `/plugin marketplace add openai/codex-plugin-cc` -> `/plugin install codex@openai-codex` -> `/reload-plugins` -> `/codex:setup`. Without it the mode runs single-headed and marks every fork that went through without a second opinion.
@@ -209,6 +243,37 @@ The blind protocol is the point: Opus states its own answer **first**, then send
 ### Lineage
 
 Forked from a private predecessor mode built on the methodology of Sergey (serejaris)'s streams (agent map, cross-model verification, Grok as scout). Falsifiable DoD, the ban on "probably", stop-on-disagreement and the "noticed, didn't touch" rule are adapted from the Rigor Pack by Iwo Szapar. What ogre adds on top: the second head with its blind protocol, hands returned to Opus with explicit limits, and the separate money/scope gate.
+
+## conveyor
+
+`conveyor` drives an issue map to completion. A map-charting flow builds a GitHub issue with sub-issues and stops; conveyor is the continuation: one dispatcher session takes that issue and drives it to its Destination in waves of parallel subagents with isolated contexts. The dispatcher never executes tickets itself -- only planning, waves, verification, GitHub bookkeeping, and a question queue for the user.
+
+### How It Runs
+
+- **Frontier:** open sub-issues that are not blocked, not claimed, and not marked human-only.
+- **Waves:** up to 4 parallel subagents, one ticket per subagent, each with an isolated context and a claim left in the ticket.
+- **Verification:** every ticket is accepted by a separate verifier (never the executor) against the ticket's DoD; external hands are always accepted by an in-session verifier agent.
+- **Bookkeeping:** close accepted tickets, release claims, update blocked-by links, maintain the map's decision log -- then re-check that everything landed in the target repo.
+- **Restart over compaction:** run state lives in GitHub (claims, labels, journal), so a fresh "drive map #N" session resumes idempotently instead of compacting a bloated context.
+
+### HITL
+
+AFK tickets run continuously. Tickets that need human judgement feed a question queue: with the user present, questions come one at a time with a recommendation; with the user away, the queue accumulates while autonomous waves continue. Pushing waits for one explicit "yes" at the end of the run; anything external, irreversible, or costing money is never executed in the background -- it lands in the question queue for the user.
+
+### Quickstart
+
+```text
+/parsenal:conveyor -- drive the map #12 to the end
+```
+
+### Requirements
+
+- A GitHub repo with `gh` available: the map, claims, journal, and acceptance all live in issues.
+- A host that can run parallel subagents (Claude Code).
+
+### Files
+
+- `skills/conveyor/SKILL.md`: the dispatcher loop, claims and restart, the HITL question queue, gates, model routing, and v1 boundaries.
 
 ## License
 
