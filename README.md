@@ -1,6 +1,6 @@
 # PARSENAL
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, five skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, six skills.
 
 | Skill | What it does |
 |---|---|
@@ -9,6 +9,7 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 | `meaning` | Work out WHAT to say before choosing the form: extract meaning from material, generate meaning directions, audit a text/concept against its meanings, compare concepts, translate a meaning core into a format. |
 | `worldbuilder` | Serial fictional worlds for short-form video: a world bible built file-by-file with HITL approval, canon evolution with conflict/retcon resolution, episode drafting, and read-only continuity checks. |
 | `ogre` | Two-headed orchestration: Opus runs the pipeline and writes self-contained specs into GitHub issue bodies, a second model of a different architecture answers every non-trivial fork blind, and hands execute. |
+| `conveyor` | Drives an issue map or epic to completion: one dispatcher session runs waves of parallel subagents over the map's sub-issues — claims, separate-verifier acceptance, GitHub bookkeeping and a HITL question queue — until the frontier is empty. |
 
 ## Install
 
@@ -17,9 +18,9 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 /plugin install parsenal@parsenal
 ```
 
-All five skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder` and `/parsenal:ogre` (not the bare `/meaning` / `/worldbuilder` / `/ogre` forms).
+All six skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder`, `/parsenal:ogre` and `/parsenal:conveyor` (not the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` forms).
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` triggers apply.
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` triggers apply.
 
 ## dreamteam
 
@@ -209,6 +210,30 @@ The blind protocol is the point: Opus states its own answer **first**, then send
 ### Lineage
 
 Forked from a private predecessor mode built on the methodology of Sergey (serejaris)'s streams (agent map, cross-model verification, Grok as scout). Falsifiable DoD, the ban on "probably", stop-on-disagreement and the "noticed, didn't touch" rule are adapted from the Rigor Pack by Iwo Szapar. What ogre adds on top: the second head with its blind protocol, hands returned to Opus with explicit limits, and the separate money/scope gate.
+
+## conveyor
+
+Drive an issue map or epic to completion without babysitting it.
+
+### What It Does
+
+A planning skill (e.g. [wayfinder](https://github.com/mattpocock/skills)) charts a map of tickets and stops. Conveyor picks the map up: one dispatcher session drives the issue's sub-issues to the map's Destination in waves of up to 4 parallel subagents with isolated contexts. The dispatcher executes nothing itself — it plans waves, claims tickets, sends every result to a separate verifier, keeps the GitHub bookkeeping and the map's decision log up to date, and queues human questions instead of blocking on them. Re-running "conveyor #N" is idempotent: run state (claims, labels, journal) lives in GitHub, so a fresh session continues where the last one stopped.
+
+### Requirements
+
+- GitHub CLI (`gh`) authenticated for the target repo.
+- An issue with sub-issues; a wayfinder-style map with Destination and blocked-by is read natively, anything else gets a one-question setup grill.
+
+### Quickstart
+
+```text
+/parsenal:conveyor
+conveyor <owner>/<repo>#N
+```
+
+### Files
+
+- `SKILL.md` — the dispatcher loop: frontier → wave → verification → bookkeeping; claims and restart, HITL queue, gates, model routing.
 
 ## License
 
