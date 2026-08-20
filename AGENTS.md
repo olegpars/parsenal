@@ -1,6 +1,8 @@
-# AGENTS.md — parsly
+# AGENTS.md — parsenal
 
-Публичный репо системы Parsly — скиллы для AI-видео (первый скилл: parsly-seedance).
+Публичный репо PARSENAL — система скиллов Claude Code (@olegpars): dreamteam, digger, meaning, worldbuilder, ogre, conveyor. Локальная папка и remote сохранили старое имя `parsly`, GitHub редиректит.
+
+Контент публичный. Инвариант публикации — деперсонализация: 0 кириллицы в `skills/` и README, 0 «Oleg» в контенте скиллов, 0 HQ#, 0 локальных путей.
 
 PRE-FLIGHT (INDEX→CROSS-REPO→now.md) — см. global `~/.claude/CLAUDE.md` §8.
 

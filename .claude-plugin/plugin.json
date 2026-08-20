@@ -1,10 +1,10 @@
 {
   "name": "parsenal",
-  "description": "PARSENAL — public Claude Code skill system by @olegpars: a one-shot multi-agent expert council, an autonomous deep-research pipeline and a two-headed orchestration mode",
-  "version": "3.2.0",
+  "description": "PARSENAL — public Claude Code skill system by @olegpars: a one-shot multi-agent expert council, an autonomous deep-research pipeline, a two-headed orchestration mode and an issue-map auto-execution dispatcher",
+  "version": "3.3.0",
   "author": { "name": "Oleg Parshentsev", "email": "olegpars@gmail.com" },
   "homepage": "https://github.com/olegpars/parsenal",
   "repository": "https://github.com/olegpars/parsenal",
   "license": "MIT",
-  "keywords": ["claude-code", "skills", "multi-agent", "expert-council", "deep-research", "knowledge-base", "orchestration", "second-opinion"]
+  "keywords": ["claude-code", "skills", "multi-agent", "expert-council", "deep-research", "knowledge-base", "orchestration", "second-opinion", "github-issues", "issue-map"]
 }
