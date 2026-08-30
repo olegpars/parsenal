@@ -4,6 +4,6 @@
 
 Контент публичный. Инвариант публикации — деперсонализация: 0 кириллицы в SKILL.md и README (функциональные RU-строки движков — например OUTPUT_LANG='ru' в dreamteam — допустимы), 0 «Oleg» в контенте скиллов, 0 HQ#, 0 локальных путей.
 
-PRE-FLIGHT (INDEX→CROSS-REPO→now.md) — см. global `~/.claude/CLAUDE.md` §8.
+PRE-FLIGHT (INDEX→CROSS-REPO→now.md) — `D:/AI_main/Github/HQ/AGENTS.md`, правило `cross_repo_bootstrap`.
 
 Этот файл универсален для всех агентов. Claude Code читает его через [CLAUDE.md](CLAUDE.md) (редирект).
