@@ -1,6 +1,6 @@
 # PARSENAL
 
-Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, six skills.
+Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One plugin, seven skills.
 
 | Skill | What it does |
 |---|---|
@@ -10,6 +10,7 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 | `worldbuilder` | Serial fictional worlds for short-form video: a world bible built file-by-file with HITL approval, canon evolution with conflict/retcon resolution, episode drafting, and read-only continuity checks. |
 | `ogre` | Two-headed orchestration: Opus runs the pipeline and writes self-contained specs into GitHub issue bodies, a second model of a different architecture answers every non-trivial fork blind, and hands execute. |
 | `conveyor` | Issue-map auto-execution: one dispatcher session drives an issue's sub-issues to Done in waves of parallel subagents -- frontier, claims, separate verifiers, GitHub bookkeeping -- with a HITL question queue instead of mid-run stalls. |
+| `dr-fanout` | Fan out deep research to four browser models via Chrome MCP: one prompt (4 runs for triangulation) or N prompts x 4 (ChatGPT + Gemini + Claude + Grok), with account guards, safe long-prompt insertion, and file-based report capture. |
 
 ## Install
 
@@ -18,9 +19,9 @@ Public Claude Code skill system by [@olegpars](https://github.com/olegpars). One
 /plugin install parsenal@parsenal
 ```
 
-All six skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder`, `/parsenal:ogre` and `/parsenal:conveyor` (not the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` forms).
+All seven skills become available and trigger on their own phrases. Installed this way, Claude Code namespaces slash commands by plugin: use `/parsenal:meaning`, `/parsenal:worldbuilder`, `/parsenal:ogre`, `/parsenal:conveyor` and `/parsenal:dr-fanout` (not the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` / `/dr-fanout` forms).
 
-Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` triggers apply.
+Manual install of a single skill (no marketplace): git clone https://github.com/olegpars/parsenal and copy the needed folder from `skills/` into `~/.claude/skills/` (Windows: `$env:USERPROFILE\.claude\skills\`). Only in this manual single-skill install do the bare `/meaning` / `/worldbuilder` / `/ogre` / `/conveyor` / `/dr-fanout` triggers apply.
 
 ## dreamteam
 
